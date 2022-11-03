@@ -1,0 +1,65 @@
+package hashmap;
+
+public class Account implements Comparable<Account>{
+
+	private String accountHolderName;
+	private int acctNo;
+	private double balance;
+	
+	
+	public Account(String accountHolderName, int acctNo, double balance) {
+		super();
+		this.accountHolderName = accountHolderName;
+		this.acctNo = acctNo;
+		this.balance = balance;
+	}
+
+
+	public String getAccountHolderName() {
+		return accountHolderName;
+	}
+
+
+	public void setAccountHolderName(String accountHolderName) {
+		this.accountHolderName = accountHolderName;
+	}
+
+
+	public double getBalance() {
+		return balance;
+	}
+
+
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Account [accountHolderName=" + accountHolderName + ", acctNo=" + acctNo + ", balance=" + balance + "]";
+	}
+	
+	@Override
+	public boolean equals(Object ob) {
+		System.out.println("Calling equals method on "+this.acctNo+" Compairing with "+((Account)ob).acctNo);
+		return this.acctNo == ((Account)ob).acctNo;
+	}
+	
+	@Override
+	public int hashCode() {
+		System.out.println("Calling HashCode method on "+this.balance);
+		return (int)this.balance;
+	}
+
+
+	@Override
+	public int compareTo(Account acc) {
+		return this.acctNo-acc.acctNo;
+	}
+	
+	
+	
+	
+	
+}
